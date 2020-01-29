@@ -1,8 +1,10 @@
 extends layout
 
 block content
+  //- receive data
   -data = data || {}
   
+  //- show errors
   if errors
     ul
       for error in errors
