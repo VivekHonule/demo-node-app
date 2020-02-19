@@ -15,6 +15,10 @@ router.get('/', (req, res) => {
   res.render('form', { title: 'Registration form' });
 });
 
+router.get('/login', (req, res) => {
+  res.render('login');
+})
+
 router.get('/registration', auth.connect(basic), (req, res) => {
   Registration.find()
     .then((registrations) => {
@@ -48,5 +52,9 @@ router.post('/',
       });
     }
   });
+
+  router.post('/login', (req, res) =>{
+    res.send('Login attempted');
+  })
 
 module.exports = router;
