@@ -11,11 +11,11 @@ const basic = auth.basic({
   file: path.join(__dirname, '../users.htpasswd'),
 });
 
-router.get('/registration/form', (req, res) => {
+router.get('/form', (req, res) => {
   res.render('form', { title: 'Registration form' });
 });
 
-router.get('/registration', auth.connect(basic), (req, res) => {
+router.get('/list', auth.connect(basic), (req, res) => {
   Registration.find()
     .then((registrations) => {
       res.render('index', { title: 'Listing registrations', registrations });
@@ -23,7 +23,7 @@ router.get('/registration', auth.connect(basic), (req, res) => {
     .catch(() => { res.send('Sorry! Something went wrong.'); });
 });
 
-router.post('/registration/submit',
+router.post('/submit',
   [
     body('name')
       .isLength({ min: 1 })
