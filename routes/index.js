@@ -21,7 +21,7 @@ router.get('/registration', auth.connect(basic), (req, res) => {
       res.render('index', { title: 'Listing registrations', registrations });
     })
     .catch(() => { res.send('Sorry! Something went wrong.'); });
-})
+});
 
 router.post('/',
   [
@@ -47,6 +47,6 @@ router.post('/',
         data: req.body,
       });
     }
-  });
+});
 
 module.exports = router;
