@@ -11,7 +11,7 @@ const basic = auth.basic({
   file: path.join(__dirname, '../users.htpasswd'),
 });
 
-router.get('/', (req, res) => {
+router.get('/registration/form', (req, res) => {
   res.render('form', { title: 'Registration form' });
 });
 
@@ -23,7 +23,7 @@ router.get('/registration', auth.connect(basic), (req, res) => {
     .catch(() => { res.send('Sorry! Something went wrong.'); });
 });
 
-router.post('/',
+router.post('/registration/submit',
   [
     body('name')
       .isLength({ min: 1 })

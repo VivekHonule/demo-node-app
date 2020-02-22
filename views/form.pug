@@ -10,7 +10,7 @@ block content
       for error in errors
         li=error.msg
 
-  form(action="." method="POST" class="form-registration")
+  form(action="/registration/submit" method="POST" class="form-registration")
     label(for="name") Name:
     input(
       type="text"
