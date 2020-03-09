@@ -47,6 +47,6 @@ router.post('/submit',
         data: req.body,
       });
     }
-});
+  });
 
 module.exports = router;
